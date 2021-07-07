@@ -91,8 +91,9 @@ jobs:
           fi
 
       - name: Publish Asgardeo Auth Angular SDK
+        uses: actions/setup-node@v2
         env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
           cat ~/.npmrc
           npm whoami
