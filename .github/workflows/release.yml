@@ -46,6 +46,8 @@ jobs:
       - uses: actions/checkout@v2
         if: github.repository != 'asgardeo/asgardeo-auth-angular-sdk'
 
+      - uses: actions/setup-node@v2
+
       - name: Build
         run: |
           npm ci
@@ -91,7 +93,6 @@ jobs:
           fi
 
       - name: Publish Asgardeo Auth Angular SDK
-        uses: actions/setup-node@v2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
